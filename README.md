@@ -1,4 +1,4 @@
-# 🎯 QuizAdaptif
+#  QuizAdaptif
 
 Application web de quiz à difficulté adaptative, développée dans le cadre du cursus d'Ingénierie des Données à l'**ENSAH Al Hoceima**.
 
@@ -6,13 +6,13 @@ Le niveau de difficulté des questions s'ajuste automatiquement en temps réel s
 
 ---
 
-## 📸 Aperçu
+##  Aperçu
 
 > Page d'accueil, écran de quiz avec timer animé, écran de résultat et classement global.
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
 - 🌐 Récupération dynamique des questions depuis l'API [Open Trivia DB](https://opentdb.com/)
 - 🧠 Algorithme de difficulté adaptative (`facile → moyen → difficile`) basé sur le taux de réussite et le temps de réponse
@@ -24,7 +24,7 @@ Le niveau de difficulté des questions s'ajuste automatiquement en temps réel s
 
 ---
 
-## 🛠️ Stack technique
+##  Stack technique
 
 | Couche | Technologie |
 |---|---|
@@ -36,7 +36,7 @@ Le niveau de difficulté des questions s'ajuste automatiquement en temps réel s
 
 ---
 
-## 🔄 Logique de l'application
+##  Logique de l'application
 
 1. L'utilisateur saisit son pseudo et choisit une catégorie, puis démarre le quiz
 2. Une requête est envoyée à l'API Open Trivia DB pour récupérer une question de difficulté "facile"
@@ -55,7 +55,7 @@ Le niveau de difficulté des questions s'ajuste automatiquement en temps réel s
 
 ---
 
-## 📦 Installation locale
+##  Installation locale
 
 ### Prérequis
 
@@ -92,7 +92,7 @@ Le niveau de difficulté des questions s'ajuste automatiquement en temps réel s
 
 ---
 
-## 🗄️ Structure de la base de données
+##  Structure de la base de données
 
 ```sql
 CREATE TABLE `scores` (
@@ -111,7 +111,7 @@ Le script complet est disponible dans [`database.sql`](./database.sql).
 
 ---
 
-## ⚠️ Limites connues / axes d'amélioration
+##  Limites connues / axes d'amélioration
 
 - Gestion du rate-limit de l'API Open Trivia DB : en cas de trop nombreuses requêtes, un message d'attente est affiché et la requête est automatiquement retentée
 - Pas de système d'authentification : un même pseudo peut être utilisé par plusieurs joueurs
@@ -120,12 +120,12 @@ Le script complet est disponible dans [`database.sql`](./database.sql).
 
 ---
 
-## 👥 Auteurs
+##  Auteurs
 
 Projet réalisé en binôme par Aya Majjati et Hajar Lebyed dans le cadre du cursus d'Ingénierie des Données à l'ENSAH Al Hoceima.
 
 ---
 
-## 📄 Licence
+##  Licence
 
 Ce projet est distribué sous licence MIT — voir le fichier [LICENSE](./LICENSE) pour plus de détails.
