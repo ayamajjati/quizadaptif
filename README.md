@@ -122,7 +122,7 @@ Le script complet est disponible dans [`database.sql`](./database.sql).
 
 ## 👥 Auteurs
 
-Projet réalisé en binôme dans le cadre du cursus d'Ingénierie des Données à l'ENSAH Al Hoceima.
+Projet réalisé en binôme par Aya Majjati et Hajar Lebyed dans le cadre du cursus d'Ingénierie des Données à l'ENSAH Al Hoceima.
 
 ---
 
