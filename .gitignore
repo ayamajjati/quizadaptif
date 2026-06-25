@@ -1,0 +1,26 @@
+# Fichiers de configuration sensibles
+config.php
+.env
+.env.local
+
+# Dossiers XAMPP / serveurs locaux
+*.log
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dépendances (si jamais ajoutées plus tard)
+node_modules/
+vendor/
+
+# Fichiers temporaires
+*.tmp
+*.bak

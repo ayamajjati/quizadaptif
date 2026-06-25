@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizAdaptif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="#" onclick="afficherScreen('home'); return false;">
+      <div class="nav-logo-icon">Q</div>
+      Quiz<span>Adaptif</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="afficherScreen('home'); return false;">Accueil</a></li>
+      <li><a href="#" onclick="sectionCategories(); return false;">Catégories</a></li>
+      <li><a href="#" onclick="afficherScreen('ranking'); return false;">Classement</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-btn" onclick="theme()" title="Changer le thème">
+        <span class="theme-icon icon-moon">🌙</span>
+        <span class="theme-icon icon-sun">☀️</span>
+      </button>
+      <button class="btn-nav-start" onclick="allerVersDebut()">Commencer</button>
+    </div>
+  </nav>
+
+ <div id="screen-home" class="screen active">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-label">
+          <div class="hero-label-dot"></div>
+          Intelligence Adaptative
+        </div>
+        <h1 class="hero-title">
+          <span class="t1">Teste tes</span><br>
+          <span class="t2">connaissances</span><br>
+          <span class="t3">sans limites</span>
+        </h1>
+        <p class="hero-sub">Un quiz qui s'adapte à ton niveau en temps réel. Plus tu réponds bien, plus les questions deviennent difficiles. Prêt à relever le défi ?</p>
+      </div>
+      <div class="hero-right" id="start-section">
+        <div class="start-card">
+          <div class="start-card-title">Commencer une partie</div>
+          <div class="form-field">
+            <label for="pseudo-input">Ton pseudo</label>
+            <input type="text" id="pseudo-input" placeholder="Ton nom ici..." maxlength="20">
+          </div>
+          <div class="form-field">
+            <label for="category-select">Catégorie</label>
+            <select id="category-select">
+              <option value="9">Culture générale</option>
+              <option value="17">Science &amp; Nature</option>
+              <option value="21">Sports</option>
+              <option value="23">Histoire</option>
+              <option value="25">Art</option>
+              <option value="27">Animaux</option>
+            </select>
+          </div>
+          <button class="btn-start" id="start-button" onclick="commencerQuiz()">Commencer le quiz</button>
+          <button class="btn-ranking-home" onclick="afficherScreen('ranking')">Voir le classement</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-pill">
+        <div class="stat-pill-icon"><i data-lucide="users-round"></i></div>
+        <div class="stat-pill-num">12K+</div>
+        <div class="stat-pill-lbl">Joueurs actifs</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-icon"><i data-lucide="circle-help"></i></div>
+        <div class="stat-pill-num">5 000+</div>
+        <div class="stat-pill-lbl">Questions</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-icon"><i data-lucide="library"></i></div>
+        <div class="stat-pill-num">6</div>
+        <div class="stat-pill-lbl">Catégories</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-icon"><i data-lucide="star"></i></div>
+        <div class="stat-pill-num">4.9/5</div>
+        <div class="stat-pill-lbl">Note moyenne</div>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="section" id="cats-section">
+      <div class="section-title">
+        <div class="section-title-bar"></div>
+        Explore les catégories
+      </div>
+      <div class="cats-grid">
+        <div class="cat-card" onclick="selectionnerCategorie('9')">
+          <div class="cat-card-icon"><i data-lucide="globe"></i></div>
+          <div class="cat-card-name">Culture générale</div>
+          <div class="cat-card-count">320 questions</div>
+        </div>
+        <div class="cat-card" onclick="selectionnerCategorie('17')">
+          <div class="cat-card-icon"><i data-lucide="flask-conical"></i></div>
+          <div class="cat-card-name">Sciences</div>
+          <div class="cat-card-count">410 questions</div>
+        </div>
+        <div class="cat-card" onclick="selectionnerCategorie('21')">
+          <div class="cat-card-icon"><i data-lucide="circle-dot"></i></div>
+          <div class="cat-card-name">Sports</div>
+          <div class="cat-card-count">280 questions</div>
+        </div>
+        <div class="cat-card" onclick="selectionnerCategorie('23')">
+          <div class="cat-card-icon"><i data-lucide="book-open"></i></div>
+          <div class="cat-card-name">Histoire</div>
+          <div class="cat-card-count">390 questions</div>
+        </div>
+        <div class="cat-card" onclick="selectionnerCategorie('25')">
+          <div class="cat-card-icon"><i data-lucide="palette"></i></div>
+          <div class="cat-card-name">Art</div>
+          <div class="cat-card-count">210 questions</div>
+        </div>
+        <div class="cat-card" onclick="selectionnerCategorie('27')">
+          <div class="cat-card-icon"><i data-lucide="paw-print"></i></div>
+          <div class="cat-card-name">Animaux</div>
+          <div class="cat-card-count">250 questions</div>
+        </div>
+      </div>
+    </div>
+    <!-- Features -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-title-bar"></div>
+        Pourquoi QuizAdaptif ?
+      </div>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><i data-lucide="target"></i></div>
+          <div class="feat-title">Niveau adaptatif</div>
+          <div class="feat-desc">Les questions s'ajustent automatiquement selon tes réponses en temps réel.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i data-lucide="timer"></i></div>
+          <div class="feat-title">Chronomètre</div>
+          <div class="feat-desc">Réponds rapidement pour maximiser ton score. Le temps compte !</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i data-lucide="trophy"></i></div>
+          <div class="feat-title">Classement local</div>
+          <div class="feat-desc">Compare tes scores avec les autres joueurs sur cet appareil.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /screen-home -->
+
+
+<div id="screen-quiz" class="screen">
+    <div class="quiz-wrap">
+
+      <!-- Top bar -->
+      <div class="quiz-topbar">
+        <span class="quiz-progress-text">Question <span id="question-current">1</span>/<span id="question-total">10</span></span>
+        <span id="difficulty-badge" class="difficulty-badge diff-easy">Facile</span>
+        <span class="quiz-score-badge">Score : <span id="current-score">0</span></span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="prog-bar-wrap">
+        <div id="progress-bar" class="prog-bar-fill" style="width: 10%;"></div>
+      </div>
+
+      <!-- Timer -->
+      <div class="timer-wrap">
+        <div class="timer-svg-wrap" id="timer-wrap">
+          <svg class="timer-svg" viewBox="0 0 72 72">
+            <circle class="timer-track" cx="36" cy="36" r="32"/>
+            <circle class="timer-fill" id="timer-circle-fill" cx="36" cy="36" r="32"/>
+          </svg>
+          <div class="timer-text"><span id="timer-count">15</span></div>
+        </div>
+      </div>
+
+      <!-- Question -->
+      <div class="question-card">
+        <div class="question-card-label">Question</div>
+        <p id="question-text">La question s'affiche ici...</p>
+      </div>
+      
+      <div id="feedback-zone" class="feedback-zone"></div>
+
+      <!-- Answers -->
+      <div id="answers-container" class="answers-grid"></div>
+
+    </div>
+  </div><!-- /screen-quiz -->
+
+
+ <div id="screen-result" class="screen">
+    <div class="result-wrap">
+      <div id="result-emoji" class="result-emoji"></div>
+      <h1 id="result-title" class="result-title"></h1>
+      <p id="result-subtitle" class="result-subtitle"></p>
+
+      <div class="result-stats">
+        <div class="res-stat">
+          <div class="res-stat-lbl">Score final</div>
+          <div id="stat-score" class="res-stat-val">0</div>
+        </div>
+        <div class="res-stat">
+          <div class="res-stat-lbl">Bonnes réponses</div>
+          <div id="stat-correct" class="res-stat-val">0/10</div>
+        </div>
+        <div class="res-stat">
+          <div class="res-stat-lbl">Niveau atteint</div>
+          <div id="stat-level" class="res-stat-val" style="font-size:1.2rem;">Facile</div>
+        </div>
+        <div class="res-stat">
+          <div class="res-stat-lbl">Temps moyen</div>
+          <div id="stat-time" class="res-stat-val">0s</div>
+        </div>
+      </div>
+      <div class="result-btns">
+        <button class="btn-primary" id="btn-share" onclick="partageResult()">Partager mon résultat</button>
+        <button class="btn-secondary" id="btn-retry" onclick="refaireQuiz()">Rejouer</button>
+        <button class="btn-secondary" id="btn-go-ranking" onclick="afficherScreen('ranking')">Voir le classement</button>
+      </div>
+
+    </div>
+  </div><!-- /screen-result -->
+
+
+  <div id="screen-ranking" class="screen">
+    <div class="ranking-wrap">
+      <div class="ranking-header">
+        <h1>Classement</h1>
+        <p>Les meilleurs scores sur cet appareil</p>
+      </div>
+
+      <!-- Podium (top 3) -->
+      <div class="podium" id="podium-container"></div>
+
+      <!-- Rest of list (4+) -->
+      <ol id="ranking-list" class="ranking-list"></ol>
+
+      <p id="ranking-empty" class="ranking-empty hidden">
+        Aucun score encore. Lance ton premier quiz !
+      </p>
+
+      <button class="btn-secondary" onclick="afficherScreen('home')">Retour à l'accueil</button>
+    </div>
+  </div><!-- /screen-ranking -->
+  </div><!-- /screen-ranking -->
+    <footer style="text-align:center; padding: 30px; color: var(--text-muted); font-size: 0.85rem;">
+        © 2026 QuizAdaptif — Tous droits réservés
+    </footer>
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>
